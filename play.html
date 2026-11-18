@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Play — Bank Fighter</title>
+<meta name="description" content="Play Bank Fighter in your browser.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="play">
+<main>
+  <div class="play">
+    <div>
+      <div class="screen crt" id="screen"><canvas id="game" width="256" height="224"></canvas></div>
+      <div class="bar">
+        <button class="btn sm" id="fs">FULLSCREEN</button>
+        <button class="btn sm alt" id="mute">SOUND: ON</button>
+        <button class="btn sm alt" id="crt">CRT: ON</button>
+        <span class="dim" style="align-self:center">Press <kbd>ENTER</kbd> to start. Keyboard or gamepad required.</span>
+      </div>
+    </div>
+    <aside class="panel side">
+      <h3>CONTROLS</h3>
+      <table>
+        <tr><th></th><th>P1</th><th>P2 (VERSUS)</th></tr>
+        <tr><td>Move</td><td><kbd>W A S D</kbd></td><td><kbd>ARROWS</kbd></td></tr>
+        <tr><td>Punch</td><td><kbd>F</kbd></td><td><kbd>,</kbd></td></tr>
+        <tr><td>Kick</td><td><kbd>G</kbd></td><td><kbd>.</kbd></td></tr>
+        <tr><td>Block</td><td><kbd>H</kbd></td><td><kbd>/</kbd></td></tr>
+      </table>
+      <p class="dim" style="font-size:18px;margin-top:8px">Solo, P1 can also use arrows + <kbd>Z</kbd> <kbd>X</kbd> <kbd>C</kbd>. <kbd>ENTER</kbd> pauses, <kbd>M</kbd> mutes. Block low attacks crouching and jump attacks standing.</p>
+      <h3 id="mvname">SPECIALS</h3>
+      <table id="mvlist"></table>
+      <h3>LEGISLATION</h3>
+      <p class="dim" style="font-size:18px">Win the deciding round, then enter a code when you see REGULATE THEM! Directions are relative to the way you face.</p>
+      <table id="fatlist"></table>
+    </aside>
+  </div>
+</main>
+<script src="js/data.js"></script>
+<script src="js/gfx.js"></script>
+<script src="js/stages.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/fatalities.js"></script>
+<script src="js/game.js"></script>
+<script src="js/site.js"></script>
+<script>
+BF.boot(document.getElementById('game'));
+(function () {
+  var scr = document.getElementById('screen'), mute = document.getElementById('mute'), crt = document.getElementById('crt');
+  var lab = function () { mute.textContent = 'SOUND: ' + (BF.audio.muted ? 'OFF' : 'ON'); };
+  lab();
+  document.getElementById('fs').onclick = function () { if (document.fullscreenElement) document.exitFullscreen(); else if (scr.requestFullscreen) scr.requestFullscreen(); this.blur(); };
+  mute.onclick = function () { BF.audio.init(); BF.audio.toggleMute(); lab(); this.blur(); };
+  addEventListener('keydown', function (e) { if (e.code === 'KeyM') setTimeout(lab, 0); });
+  crt.onclick = function () { var on = scr.classList.toggle('crt'); crt.textContent = 'CRT: ' + (on ? 'ON' : 'OFF'); this.blur(); };
+})();
+</script>
+</body>
+</html>

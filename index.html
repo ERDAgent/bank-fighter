@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bank Fighter — the 16-bit fighting game of failed finance</title>
+<meta name="description" content="A SNES-style 2D fighter where bankrupt and scandal-hit companies trade financial-term special moves and finish each other with legislation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="home">
+<main>
+  <section class="hero">
+    <h1 class="logo">BANK<span>FIGHTER</span></h1>
+    <p class="sub">TOO BIG TO FAIL. TOO SLOW TO BLOCK.</p>
+    <p><a class="btn" href="play.html">▶ INSERT COIN / PLAY NOW</a></p>
+    <canvas id="hero" width="256" height="224"></canvas>
+  </section>
+  <section class="grid g3">
+    <div class="panel"><span class="tag">8 FIGHTERS</span><h2>History's finest failures</h2><p>Enron. WorldCom. Bear Stearns. Lehman. Theranos. FTX. Madoff. WaMu. Each one reborn as a 16-bit mascot with a grudge and a balance sheet to hide.</p><a href="roster.html">Meet the roster →</a></div>
+    <div class="panel"><span class="tag">24 SPECIAL MOVES</span><h2>Fight with finance</h2><p>Throw an EBITDA. Dodge a Credit Default Swap. Lock them in Golden Handcuffs, hit them with Heteroskedasticity, then float away on a Golden Parachute.</p><a href="moves.html">Study the move list →</a></div>
+    <div class="panel"><span class="tag">5 FINISHERS</span><h2>Regulate them!</h2><p>Win the match and the screen goes dark. Enter the code to pass real legislation on your opponent, from Glass-Steagall to Dodd-Frank.</p><a href="legislation.html">Read the legislation →</a></div>
+  </section>
+  <section class="panel" style="margin-top:20px;text-align:center">
+    <h2>CHOOSE YOUR LIABILITY</h2>
+    <div class="strip" id="strip"></div>
+  </section>
+  <section class="grid g3" style="margin-top:20px">
+    <div class="panel"><h3>ARCADE LADDER</h3><p class="dim">Beat the other seven, then survive the final audit against The Regulator.</p></div>
+    <div class="panel"><h3>2P VERSUS</h3><p class="dim">Two players, one keyboard, or plug in gamepads.</p></div>
+    <div class="panel"><h3>TRAINING</h3><p class="dim">On-screen move list, a patient dummy, and finisher practice.</p></div>
+  </section>
+</main>
+<script src="js/data.js"></script>
+<script src="js/gfx.js"></script>
+<script src="js/stages.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
